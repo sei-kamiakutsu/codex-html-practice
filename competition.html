@@ -1,0 +1,270 @@
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power BI サービスコンペティション</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg-color: #f5f7fb;
+      --card-color: rgba(255, 255, 255, 0.85);
+      --accent: #4f46e5;
+      --text-primary: #1a1d29;
+      --text-secondary: #4b5563;
+      --shadow: 0 24px 48px rgba(31, 41, 55, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: clamp(2rem, 6vw, 5rem);
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.85), rgba(6, 182, 212, 0.8)),
+        url('https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=2100&q=80') center/cover;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: clamp(12rem, 25vw, 20rem);
+      height: clamp(12rem, 25vw, 20rem);
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 820px;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      background: rgba(17, 24, 39, 0.45);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-content h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-content p {
+      margin: 0;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    main {
+      max-width: 980px;
+      margin: -4rem auto 6rem;
+      padding: 0 clamp(1.5rem, 3vw, 4rem);
+    }
+
+    .card {
+      background: var(--card-color);
+      backdrop-filter: blur(10px);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: clamp(2rem, 4vw, 3rem);
+      display: grid;
+      gap: clamp(1.5rem, 2vw, 2rem);
+    }
+
+    .section-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 36px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    .info-block {
+      background: rgba(79, 70, 229, 0.08);
+      border-radius: 20px;
+      padding: clamp(1rem, 3vw, 1.5rem);
+      border: 1px solid rgba(79, 70, 229, 0.15);
+    }
+
+    .info-block h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .info-block ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--text-secondary);
+    }
+
+    .info-block li {
+      margin-bottom: 0.4rem;
+    }
+
+    .deadline {
+      display: grid;
+      gap: 1rem;
+      padding: clamp(1.5rem, 3vw, 2rem);
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.15), rgba(6, 182, 212, 0.2));
+      border: 1px solid rgba(79, 70, 229, 0.2);
+    }
+
+    .deadline strong {
+      font-size: 1.5rem;
+      color: var(--text-primary);
+    }
+
+    .mail-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .mail-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(79, 70, 229, 0.2);
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .mail-chip svg {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .note {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem 4rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        min-height: 50vh;
+        align-items: center;
+      }
+
+      main {
+        margin-top: -3rem;
+      }
+
+      .mail-list {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .mail-chip {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Power BI サービス コンペティション 2025</h1>
+      <p>組織の知見を引き出すダッシュボードを提案し、Power BI の可能性を競い合いましょう。</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <div>
+        <span class="section-title">Submission</span>
+        <div class="info-block">
+          <h3>提出方法</h3>
+          <ul>
+            <li>提出物：Power BIサービスレポート URL（共有リンク）、簡単な企画概要（200〜400字）</li>
+            <li>提出先宛先：lifangqing@hisense.com　 /　sei.kamiakutsu@regza.com</li>
+            <li>締切：2025/11/04（火）23:59（厳守）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <span class="section-title">Evaluation</span>
+        <div class="info-block">
+          <h3>評価・結果</h3>
+          <ul>
+            <li>評価基準：設計品質、可視化品質、再現性・運用性</li>
+            <li>結果発表：2025年11月10日（月）（社内ポータルおよびメールで通知）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="deadline">
+        <strong>提出締切まで残り時間を意識して、早めのエントリーを！</strong>
+        <div class="mail-list">
+          <span class="mail-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            lifangqing@hisense.com
+          </span>
+          <span class="mail-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            sei.kamiakutsu@regza.com
+          </span>
+        </div>
+        <p class="note">共有リンクと企画概要は提出前に閲覧権限と文字数を必ず確認してください。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Power BI Service Competition. All rights reserved.
+  </footer>
+</body>
+</html>
